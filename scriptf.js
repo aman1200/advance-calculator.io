@@ -8,7 +8,7 @@ let keyArr =[];
 let key = 0;
 let preValue = 0;
 
-const numOperator = ['0','1','2','3','4','5','6','7','8','9','.','+','-','/','*','(',')'];
+const numOperator = ['0','1','2','3','4','5','6','7','8','9','.','+','-','/','*','(',')',"="];
 const mathAdvance = ['sin','cos','tan','arcsin','arccos','arctan','sqrt','log','ln','x^y','e^x','1/x','x!'];
 
 
@@ -30,7 +30,7 @@ mathObj.set(11,reciprocal);
 mathObj.set(12,factorialize);
 
 
-/******************************************************/
+/****************************************************************************************************/
 //Function for factorial and reciprocal of a number
 
 function factorialize(num) {
@@ -47,16 +47,36 @@ function reciprocal(num){
   return 1/num;
 }
 
-/******************************************************/
+/****************************************************************************************************/
 
 for (let i =0;i<inputData.length;i++){
   inputData[i].addEventListener('click',function(){
     if (this.textContent === "="){
         calc.textContent+=this.textContent;
         out.textContent = evaluteValues(fvalue);
-    }else if(this.textContent === "C"){
+    }
+    else if(this.textContent === "C"){
         resetAll();
     }
+    /*****************************************************************************/
+    //Removing the element
+
+    else if(this.textContent === "Del"){
+      if (numOperator.includes(fvalue[fvalue.length-1])){
+          fvalue=fvalue.substring(0,fvalue.length-1);
+          calc.textContent=fvalue;
+      }else if (mathAdvance.includes(keyArr[keyArr.length-1])){
+        let t = keyArr[keyArr.length-1].length;
+        fvalue=fvalue.substring(0,fvalue.length-t);
+        calc.textContent=fvalue;
+      }
+
+      if (calc.textContent.length ===0){
+        calc.innerHTML="<span>&nbsp;</span>";
+      }
+      let p = keyArr.pop();
+    }
+    /*****************************************************************************/
     else{
       calc.textContent+=this.textContent;
       fvalue=fvalue+this.textContent;
@@ -69,7 +89,6 @@ for (let i =0;i<inputData.length;i++){
   });
 }
 
-
 function evaluteValues(inputString){
   if (key === 0){
     return eval(inputString);
@@ -79,7 +98,6 @@ function evaluteValues(inputString){
   }
 
 }
-
 
 function advCalculation(){
     let outputString="";
@@ -95,7 +113,7 @@ function advCalculation(){
 
   }
 
-  function resetAll(){
+function resetAll(){
     fvalue="";
     keyArr =[];
     key = 0;

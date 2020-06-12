@@ -3,6 +3,11 @@
   margin: 0;
 }
 
+.heading{
+    display: flex;
+    justify-content: center;
+}
+
 .root-container{
   margin-top: 1%;
   display: flex;
@@ -15,13 +20,15 @@
   align-content: center;
   flex-direction: column;
   border: 2px solid black;
-  padding: 2%;
+  border-radius: 10px;
+  padding: 2.0%;
 }
 
 .display-tab{
   border: 2px solid red;
   padding-top: 50px;
   padding: 67px;
+  padding-bottom: 16px;
   width:190px;
 }
 
