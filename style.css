@@ -1,0 +1,39 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+.root-container{
+  margin-top: 1%;
+  display: flex;
+  justify-content: center;
+}
+
+.main-container{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  border: 2px solid black;
+  padding: 2%;
+}
+
+.display-tab{
+  border: 2px solid red;
+  padding-top: 50px;
+  padding: 67px;
+  width:190px;
+}
+
+.body-container{
+  padding-top:13%;
+  padding-left:3%;
+}
+
+.btn{
+  width:18.5%;
+  font-size: 110%;
+  padding: 4% 0.1%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
