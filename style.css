@@ -1,11 +1,18 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@500&display=swap');
+
 *{
   padding: 0;
   margin: 0;
 }
 
 .heading{
+    padding-top: 10px;
     display: flex;
     justify-content: center;
+    font-weight: 300;
+    font-family: 'Prompt', sans-serif;
 }
 
 .root-container{
@@ -19,17 +26,31 @@
   justify-content: center;
   align-content: center;
   flex-direction: column;
-  border: 2px solid black;
+  border: 2px solid #e60000;
   border-radius: 10px;
   padding: 2.0%;
+  background:#ff3333;
 }
 
 .display-tab{
-  border: 2px solid red;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  border: 2px solid #fff;
+  color:#fff;
+  font-family: 'Asap', sans-serif;
   padding-top: 50px;
-  padding: 67px;
-  padding-bottom: 16px;
+  padding: 63px;
+  padding-top: 35px;
+  padding-bottom: 35px;
   width:190px;
+  /*
+  padding-left: 10px;
+  padding-right: 100px;
+  */
+  font-size: 154%;
+  background-color: #525354;
 }
 
 .body-container{
@@ -39,8 +60,24 @@
 
 .btn{
   width:18.5%;
-  font-size: 110%;
-  padding: 4% 0.1%;
+  font-size: 119%;
+  font-weight: 700;
+  font-family: 'Asap', sans-serif;
+  padding: 3.5% 0.1%;
   margin-top: 1%;
   margin-bottom: 1%;
+  background-color: #fff;
+  color: #2e2eb8;
+  border:none;
+  border-radius: 7px;
+}
+
+.btn:hover{
+  background-color: #ebf3ff;
+}
+
+
+.oper{
+  font-size: 130%;
+  padding: 3.0% 0.1%;
 }

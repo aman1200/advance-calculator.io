@@ -6,11 +6,10 @@ let out = document.querySelector('#output');
 let fvalue=""; // for storing the input as a string
 let keyArr =[];
 let key = 0;
-let preValue = 0;
+let key1 = 0;
 
 const numOperator = ['0','1','2','3','4','5','6','7','8','9','.','+','-','/','*','(',')',"="];
-const mathAdvance = ['sin','cos','tan','arcsin','arccos','arctan','sqrt','log','ln','x^y','e^x','1/x','x!'];
-
+const mathAdvance = ['sin','cos','tan','arcsin','arccos','arctan','sqrt','log','ln','x^n','exp','1/x','fact',"sq"];
 
 const mathObj = new Map();
 mathObj.set(0,"Math.sin");
@@ -20,18 +19,19 @@ mathObj.set(3,"Math.asin");
 mathObj.set(4,"Math.acos");
 mathObj.set(5,"Math.atan");
 mathObj.set(6,"Math.sqrt");
-mathObj.set(7,"Math.log");     //To be Converted to Base 10
+mathObj.set(7,"Math.log10");     //To be Converted to Base 10
 mathObj.set(8,"Math.log");    // Built in JavaScript Conversion for Base e
 mathObj.set(9,"Math.pow");
 mathObj.set(10,"Math.exp");
 
 //Adding two other operartions
-mathObj.set(11,reciprocal);
-mathObj.set(12,factorialize);
+mathObj.set(11,"reciprocal");
+mathObj.set(12,"factorialize");
+mathObj.set(13,"square");
 
 
-/****************************************************************************************************/
-//Function for factorial and reciprocal of a number
+/********************************************************************/
+//Function for additinal operation
 
 function factorialize(num) {
   if (num === 0 || num === 1)
@@ -47,13 +47,27 @@ function reciprocal(num){
   return 1/num;
 }
 
-/****************************************************************************************************/
+function square(num){
+  return num*num;
+}
+
+
+
+/********************************************************************/
+
+/*-------------------------------------------------------------------------------------------------------------*/
+
+//Main Body
 
 for (let i =0;i<inputData.length;i++){
   inputData[i].addEventListener('click',function(){
+    if (key1 !== 0){
+      nextCalc();
+    }
     if (this.textContent === "="){
-        calc.textContent+=this.textContent;
+        calc.textContent+=" "+this.textContent;
         out.textContent = evaluteValues(fvalue);
+        key1 = 1;
     }
     else if(this.textContent === "C"){
         resetAll();
@@ -77,6 +91,18 @@ for (let i =0;i<inputData.length;i++){
       let p = keyArr.pop();
     }
     /*****************************************************************************/
+
+    else if(this.textContent === "1/x"){
+      calc.textContent+="1/";
+      keyArr.push("1/");
+      fvalue=fvalue+"1/";
+    }
+    else if (this.textContent === "x^n"){
+      calc.textContent+="^";
+      fvalue+="**";
+
+    }
+
     else{
       calc.textContent+=this.textContent;
       fvalue=fvalue+this.textContent;
@@ -88,6 +114,8 @@ for (let i =0;i<inputData.length;i++){
 
   });
 }
+
+/*-------------------------------------------------------------------------------------------------------------*/
 
 function evaluteValues(inputString){
   if (key === 0){
@@ -120,4 +148,13 @@ function resetAll(){
 
     calc.innerHTML="<span>&nbsp;</span>";
     out.innerHTML="<span>&nbsp;</span>";
+  }
+
+  function nextCalc(){
+    calc.textContent=out.textContent;
+    out.innerHTML="<span>&nbsp;</span>";
+    keyArr = [];
+    fvalue = calc.textContent;
+    keyArr.push(calc.textContent);
+    key1 = 0;
   }
