@@ -13,6 +13,7 @@
     justify-content: center;
     font-weight: 300;
     font-family: 'Prompt', sans-serif;
+    color: #00e600;
 }
 
 .root-container{
@@ -29,22 +30,23 @@
   border: 2px solid #e60000;
   border-radius: 10px;
   padding: 2.0%;
-  background:#ff3333;
+  background:#ff6666;
 }
 
 .display-tab{
   display:flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
   flex-wrap: wrap;
   border: 2px solid #fff;
   color:#fff;
   font-family: 'Asap', sans-serif;
-  padding-top: 50px;
-  padding: 63px;
-  padding-top: 35px;
-  padding-bottom: 35px;
-  width:190px;
+  padding-left: 63px;
+  padding-right: 63px;
+  margin-top: 15px;
+  padding-top: 20px;
+  padding-bottom: 55px;
+  width:195px;
   /*
   padding-left: 10px;
   padding-right: 100px;
@@ -59,7 +61,7 @@
 }
 
 .btn{
-  width:18.5%;
+  width:18.9%;
   font-size: 119%;
   font-weight: 700;
   font-family: 'Asap', sans-serif;
@@ -67,7 +69,7 @@
   margin-top: 1%;
   margin-bottom: 1%;
   background-color: #fff;
-  color: #2e2eb8;
+  color: #0066ff;
   border:none;
   border-radius: 7px;
 }

@@ -19,8 +19,8 @@ mathObj.set(3,"Math.asin");
 mathObj.set(4,"Math.acos");
 mathObj.set(5,"Math.atan");
 mathObj.set(6,"Math.sqrt");
-mathObj.set(7,"Math.log10");     //To be Converted to Base 10
-mathObj.set(8,"Math.log");    // Built in JavaScript Conversion for Base e
+mathObj.set(7,"Math.log10");
+mathObj.set(8,"Math.log");
 mathObj.set(9,"Math.pow");
 mathObj.set(10,"Math.exp");
 
@@ -119,8 +119,11 @@ for (let i =0;i<inputData.length;i++){
 
 function evaluteValues(inputString){
   if (key === 0){
-    return eval(inputString);
-  }else{
+    let temp1= eval(inputString);
+    let q = fixDigit(temp1);
+    return q;
+  }
+  else{
     let p = advCalculation();
     return p;
   }
@@ -137,7 +140,10 @@ function advCalculation(){
         outputString+=keyArr[i];
       }
     }
-    return eval(outputString);
+
+     let temp2 = eval(outputString);
+     let r = fixDigit(temp2);
+     return r;
 
   }
 
@@ -157,4 +163,12 @@ function resetAll(){
     fvalue = calc.textContent;
     keyArr.push(calc.textContent);
     key1 = 0;
+  }
+
+  function fixDigit(str){
+    let a = Number(str);
+    if (a-Math.floor(a)!==0 && String(a).length>=5){
+      a=a.toFixed(5);
+    }
+    return a;
   }
